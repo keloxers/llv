@@ -67,7 +67,7 @@ return array(
 
 	'actiondelete'	=> "Borrar",
 
-	'name'	=> "VirasoroVirtual.com",
+	'name'	=> "LaborLegislativaVirasoro.com",
 
 	'register_new'	=> "Registrarse",
 
@@ -99,7 +99,7 @@ return array(
 
 	'minutes'	=> "minutos",
 
-	'title'	=> "Bienvenido a ToledoAldo.com",
+	'title'	=> "Bienvenido a LaborLegislativaVirasoro.com",
 
 	''	=> "",
 
