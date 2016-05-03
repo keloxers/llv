@@ -23,8 +23,20 @@
 														echo "<p>";
 														echo "Creado:" . $proyecto->created_at . "<br>";
 														echo "Modificado:" . $proyecto->updated_at . "<br>";
-														echo "Estado:" . $proyecto->descripcion . "<br>";
+														echo "Descripcion:" . $proyecto->descripcion . "<br>";
 														echo "Autor/es:" . $proyecto->autores . "<br>";
+
+														$proyectosestados = DB::table('proyectosestados')
+																							->where('proyectos_id', '=', $proyecto->id)
+																							->orderBy('id', 'desc')
+																							->get();
+
+														foreach ($proyectosestados as $proyectosestado)
+															{
+																echo $proyectosestado->created_at . " - " . $proyectosestado->proyectosestado . "<br>";
+															}
+
+
 
 														echo "</p>";
 														echo "</div>";
