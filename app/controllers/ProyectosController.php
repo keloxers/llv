@@ -12,64 +12,13 @@ class proyectosController extends BaseController {
 	{
 
 
-
-
-        $proyecto_tapa = DB::table('proyectos')
-													->where('estado', '=', 'publicado')
-													->where('tipo', '=', 'principal')
+        $proyectos = DB::table('proyectos')
 													->orderBy('id', 'desc')
-													->paginate(3);
-
-				$proyectos = DB::table('proyectos')
-													->where('estado', '=', 'publicado')
-													->orderBy('id', 'desc')->paginate(16);
-
-				$proyectos_masvistos = DB::table('proyectos')
-													->where('estado', '=', 'publicado')
-													->where('created_at', '>=', new DateTime('-10 days'))
-													->orderBy('visitas', 'desc')
-													->paginate(4);
-
-				$categorias = DB::table('categorias')
-													->orderBy('categoria', 'asc')
-													->get();
-
-				$banners_smalls = DB::table('banners')
-										->where('posicion', '=', 'homesmall')
-										->get();
-
-				$banners_lateral = DB::table('banners')
-										->where('posicion', '=', 'homelateral')
-										->get();
+													->paginate(30);
 
 
-				$clasificados = DB::table('clasificados')
-													->where('estado', '=', 'publicado')
-													->orderBy('id', 'desc')->paginate(30);
 
-
-				$encuesta = DB::table('encuestas')
-													->where('activo', '=', 'si')
-													->orderBy('id', 'desc')
-													->first();
-				if ($encuesta) {
-						$respuestas = DB::table('respuestas')
-														->where('encuestas_id', '=', $encuesta->id)
-														->orderBy('id')
-														->get();
-				} else {
-						$respuestas = "";
-				}
-
-        return View::make('home', array('proyecto_tapa' => $proyecto_tapa,
-																				'proyectos' => $proyectos,
-																				'proyectos_masvistos' => $proyectos_masvistos,
-																				'categorias' => $categorias,
-																				'banners_smalls' => $banners_smalls,
-																				'banners_lateral' => $banners_lateral,
-																				'clasificados' => $clasificados,
-																				'encuesta' => $encuesta,
-																				'respuestas' => $respuestas
+        return View::make('proyectos.index', array('proyectos' => $proyectos
 									));
 
 	}

@@ -72,6 +72,7 @@
 								</ul>
 							</li> -->
 
+							<li {{ (Request::is('proyectos') ? 'class="active"' : '') }}><a href="/proyectos">Proyectos</a></li>
 
 							<li class='has-sub'>
 								<a href='#'>Secciones</a>
