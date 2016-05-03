@@ -21,10 +21,10 @@
 														echo "<div class='pane'>";
 
 														echo "<p>";
-														echo "Creado:" . $proyecto->created_at . "<br>";
-														echo "Modificado:" . $proyecto->updated_at . "<br>";
-														echo "Descripcion:" . $proyecto->descripcion . "<br>";
-														echo "Autor/es:" . $proyecto->autores . "<br>";
+														echo "Creado: " . $proyecto->created_at . "<br>";
+														echo "Modificado: " . $proyecto->updated_at . "<br>";
+														echo "Descripcion: " . $proyecto->descripcion . "<br>";
+														echo "Autor/es: " . $proyecto->autores . "<br>";
 
 														$proyectosestados = DB::table('proyectosestados')
 																							->where('proyectos_id', '=', $proyecto->id)
@@ -33,7 +33,7 @@
 
 														foreach ($proyectosestados as $proyectosestado)
 															{
-																echo $proyectosestado->created_at . " - " . $proyectosestado->proyectosestado . "<br>";
+																echo $proyectosestado->proyectosestado . " - " . $proyectosestado->created_at . "<br>";
 															}
 
 
